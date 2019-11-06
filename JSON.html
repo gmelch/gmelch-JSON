@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JSON Practice</title>
+	<style type="text/css">
+		body {
+			text-align: center;
+		}
+
+
+	</style>
+</head>
+<body>
+	<h1>Part 2: Serialized Data</h1>
+	<p id="string0"></p>
+	<p id="string1"></p>
+	<p id="string2"></p>
+	<p id="string3"></p>
+	<p id="string4"></p>
+	<p id="string5"></p>
+	<p id="string6"></p>
+	<p id="string7"></p>
+	<p id="string8"></p>
+	<p id="string9"></p>
+
+	<h1>Part 3: User Friendly Display</h1>
+	<p id="string10"></p>
+	<p id="string11"></p>
+	<p id="string12"></p>
+	<p id="string13"></p>
+	<p id="string14"></p>
+	<p id="string15"></p>
+	<p id="string16"></p>
+	<p id="string17"></p>
+	<p id="string18"></p>
+	<p id="string19"></p>
+
+
+	<h1>Part 4: Filtering</h1>
+	<select id="Genre">
+		<option>Sort By Genre</option>
+		<option value="Country">Country</option>
+		<option value="Rock">Rock</option>
+		<option value="Pop">Pop</option>
+	</select>
+	<button onclick="filter()">Submit</button>
+	<p id="string20"></p>
+	<p id="string21"></p>
+	<p id="string22"></p>
+	<p id="string23"></p>
+	<p id="string24"></p>
+	<p id="string25"></p>
+	<p id="string26"></p>
+	<p id="string27"></p>
+	<p id="string28"></p>
+	<p id="string29"></p>
+
+
+	<script language="javascript" type="text/javascript">
+
+		var setlist = [
+			{
+				"Artist" : ["Boys Like Girls", "Taylor Swift"],
+				"Title" : "Two is Better than One",
+				"Genre" : ['Rock'],
+				"Year" : 2009
+			},
+			{
+				"Artist" : ["Taylor Swift"],
+				"Title" : "Red",
+				"Genre" : ['Pop'],
+				"Year" : 2012
+			},
+			{
+				"Artist" : ["Taylor Swift"],
+				"Title" : "Our Song",
+				"Genre" : ['Country'],
+				"Year" : 2006
+			},
+			{
+				"Artist" : ["Taylor Swift"],
+				"Title" : "Look What You Made Me Do",
+				"Genre" : ['Pop'],
+				"Year" : 2017
+			},
+			{
+				"Artist" : ["Taylor Swift"],
+				"Title" : "London Boy",
+				"Genre" : ['Pop'],
+				"Year" : 2019
+			},
+			{
+				"Artist" : ["Taylor Swift"],
+				"Title" : "White Horse",
+				"Genre" : ['Country'],
+				"Year" : 2008
+			},
+			{
+				"Artist" : ["Taylor Swift"],
+				"Title" : "Tim McGraw",
+				"Genre" : ['Country'],
+				"Year" : 2006
+			},
+			{
+				"Artist" : ["Taylor Swift"],
+				"Title" : "Tell Me Why",
+				"Genre" : ['Country'],
+				"Year" : 2008
+			},
+			{
+				"Artist" : ["Taylor Swift"],
+				"Title" : "Shake It Off",
+				"Genre" : ['Pop'],
+				"Year" : 2016
+			},
+			{
+				"Artist" : ["Taylor Swift", "Ed Sheeran"],
+				"Title" : "Everything Has Changed",
+				"Genre" : ['Pop'],
+				"Year" : 2013,
+			}
+		];
+
+
+		for (i = 0; i < 10; i++) {
+			var artist = JSON.stringify(setlist[i].Artist);
+			var title = JSON.stringify(setlist[i].Title);
+			var genre = JSON.stringify(setlist[i].Genre);
+			var year = JSON.stringify(setlist[i].Year);
+
+			var print = title + artist + genre + year;
+			document.getElementById("string" + i).innerHTML = print;
+		}
+
+		for (i = 0; i < 10; i++) {
+			var artist = (setlist[i].Artist);
+			var title = "<b>" + (setlist[i].Title) + "</b>";
+			var genre = (setlist[i].Genre);
+			var year = (setlist[i].Year);
+
+			var print = title + "<br> Artist: " + artist + "<br> Genre: " + genre + "<br> Released: " + year;
+			document.getElementById("string1" + i).innerHTML = print;
+		}
+
+		function filter() {
+			for (i = 0; i < 10; i++) {
+				document.getElementById("string2" + i).innerHTML = "";
+			}
+			var userGenre = document.getElementById("Genre").value;
+			if (document.getElementById("Genre").selectedIndex > 0) {
+				for (i = 0; i < 10; i++) {
+					var string = (setlist[i].Genre);
+					if (userGenre == string) {
+						var artist = (setlist[i].Artist);
+
+						var title = "<b>" + (setlist[i].Title) + "</b>";
+
+						var genre = (setlist[i].Genre);
+
+						var year = (setlist[i].Year);
+
+						var print = title + "<br> Artist: " + artist + "<br> Genre: " + genre + "<br> Released: " + year;
+						document.getElementById("string2" + i).innerHTML = print;
+					}
+				}
+			}
+		}
+	</script>
+
+</body>
+</html>
+
